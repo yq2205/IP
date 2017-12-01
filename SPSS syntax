@@ -1,0 +1,21 @@
+#SPSS syntax
+#Aggregate the data
+NEW FILE.
+DATASET NAME DataSet2 WINDOW=FRONT.
+
+SAVE OUTFILE='/Users/quyibing/Desktop/doing/IP/data/IP DATA.sav'
+  /COMPRESSED.
+DATASET ACTIVATE DataSet2.
+
+SAVE OUTFILE='/Users/quyibing/Desktop/doing/IP/data/IP DATA.sav'
+  /COMPRESSED.
+AGGREGATE
+  /OUTFILE=* MODE=ADDVARIABLES
+  /BREAK=CNTSCHID
+  /ESCS_mean=MEAN(ESCS).
+DATASET ACTIVATE DataSet2.
+
+SAVE OUTFILE='/Users/quyibing/Desktop/doing/IP/data/IP DATA.sav'
+  /COMPRESSED.
+DATASET ACTIVATE DataSet1.
+DATASET CLOSE DataSet2.
